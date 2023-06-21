@@ -1,11 +1,10 @@
 const express = require('express');
 const app = express();
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
 const port = 3000;
+
+app.get('/', (request, response) => {
+    response.json({ aplicacao: 'CRUD PASSEIOS' })
+  })
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
