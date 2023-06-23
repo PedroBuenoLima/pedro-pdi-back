@@ -28,11 +28,11 @@ const getPasseioById = (request, response) => {
 };
 
 const createPasseio = (request, response) => {
-  const { name, price, content, quantity, imageUrl } = request.body;
+  const { name, price, content, quantity, image_url } = request.body;
 
   pool.query(
     'INSERT INTO passeios (name, price, content, quantity, image_url) VALUES ($1, $2, $3, $4, $5)',
-    [name, price, content, quantity, imageUrl],
+    [name, price, content, quantity, image_url],
     (error, result) => {
       if (error) {
         throw error;
@@ -44,11 +44,11 @@ const createPasseio = (request, response) => {
 
 const updatePasseio = (request, response) => {
   const id = parseInt(request.params.id);
-  const { name, price, content, quantity, imageUrl } = request.body;
+  const { name, price, content, quantity, image_url } = request.body;
 
   pool.query(
     'UPDATE passeios SET name = $1, price = $2, content = $3, quantity = $4, image_url = $5 WHERE id = $6',
-    [name, price, content, quantity, imageUrl, id],
+    [name, price, content, quantity, image_url, id],
     (error, result) => {
       if (error) {
         throw error;
